@@ -1,0 +1,405 @@
+/* FONTS */
+@font-face {
+  font-family: "primary-font";
+  src: url("../assets/Psilograph-Black.ttf");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*  */
+:root {
+  --color-primary: #f8f8f8;
+  --color-accent: #b61307;
+  --color-dark: #171717;
+}
+
+html {
+  width: 100vw;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* header */
+
+.header {
+  height: 100vh;
+  position: relative;
+  z-index: 50;
+  padding: 1rem;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.header-button-container {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(200px);
+  animation-name: animation-btn;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 9s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animation-btn {
+  0% {
+    transform: translateY(200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.header-button {
+  width: 200px;
+  margin: auto;
+  padding: 1rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: black;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 0.25rem;
+}
+
+.header-button:hover {
+  animation: wiggle 1s ease infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+.header-logo {
+  width: 100%;
+  z-index: 2;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  animation-name: shutter-in-top;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 8.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shutter-in-top {
+  0% {
+    transform: rotateX(-100deg);
+    transform-origin: top;
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: rotateX(0deg);
+    transform-origin: top;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.header-logo img {
+  width: 100%;
+}
+
+.header-video-container {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  top: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.header-video-container video {
+  width: 100%;
+}
+
+.bg-video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 1;
+  position: absolute;
+  background-color: #05026abe;
+}
+
+/* sections */
+
+.main-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+
+  display: flex;
+}
+
+.description-skate {
+  width: 100%;
+  position: absolute;
+  color: var(--color-dark);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+#skateTitle {
+  font-family: "primary-font", sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  transition: 0.4s ease all;
+}
+
+#skateDetails {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  bottom: 3rem;
+  display: flex;
+  width: 100vw;
+  margin: auto;
+  gap: 10rem;
+  left: 1rem;
+}
+
+#skateDetails div {
+  min-width: 200px;
+  font-size: 0.75rem;
+}
+
+#prevModel,
+#nextModel {
+  padding: 1rem;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(199, 199, 199, 0.269);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prevModel {
+  left: 2rem;
+  top: 45%;
+}
+
+#nextModel {
+  right: 2rem;
+  top: 45%;
+}
+
+/* logo */
+.footer-logo {
+  width: 500px;
+  margin: auto;
+}
+
+/* footer */
+.footer {
+  height: 100vh;
+
+  padding: 2rem;
+
+  padding-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 15;
+  position: relative;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.container-footer img {
+  width: 100%;
+}
+
+.footer-sm {
+  width: 100%;
+  height: 5rem;
+}
+
+.footer-sm ul {
+  list-style: none;
+  z-index: 10000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-sm a {
+  font-family: "primary-font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 6rem;
+}
+
+/* CANVAS FOR 3D MODEL */
+.model-skate,
+canvas {
+  background-color: transparent;
+
+  width: 100%;
+  height: 100vh;
+  left: 0;
+}
+
+/* Splash */
+
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  z-index: 20;
+  opacity: 1;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.loader-number {
+  font-family: "primary-font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7rem;
+  color: var(--color-dark);
+}
+
+.splash-logo {
+  position: absolute;
+  left: 0;
+  bottom: 3rem;
+  animation: slide-right 10s ease-in-out forwards;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(3000px);
+  }
+}
+
+.splash-container.fade-out {
+  opacity: 0;
+  transform: translateY(20);
+  pointer-events: none;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  100% {
+    stroke-dasharray: 100, 0;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 430px) {
+  .header-video-container video {
+    width: auto;
+    height: 100vh;
+  }
+
+  #skateDetails {
+    display: none;
+  }
+
+  #prevModel, #nextModel {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    top: 90%;
+  }
+
+  .footer {
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .footer-sm {
+    height: 35vh;
+  }
+  .footer-sm ul {
+    flex-direction: column;
+  }
+
+  .footer-sm ul a {
+    font-size: 4rem;
+  }
+}
+
+/* scroll */
+.container {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  position: absolute;
+  z-index: 5;
+}
+.area {
+  width: 100vw;
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+.area-main {
+  scroll-snap-align: start;
+}

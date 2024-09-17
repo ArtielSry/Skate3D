@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="skate-logo.ico" type="image/x-icon" />
+    <!-- meta tag for the SEO: description, author -->
+    <meta name="description" content="Personal Project by Soraya Artiel" />
+    <meta name="author" content="Soraya Artiel" />
+    <!-- meta tag for the SEO: OPEN GRAPH PROTOCOL -->
+    <meta
+      property="og:title"
+      content="SAVE THE BEES - Personal project with ThreeJS and GSAP"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://artielsry.github.io/portfolio/" />
+    <meta
+      property="og:description"
+      content="Soraya Artiel, Web developer, Android developer, SEO, UX-UI designer"
+    />
+
+    <!-- Links css, normalize -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+
+    <title>PRO SKATE - Personal Project</title>
+  </head>
+  <body>
+    <!-- Splash Intro -->
+    <div class="splash-container">
+      <div class="splash-logo">
+        <lottie-player
+          src="https://lottie.host/7133f2a7-1ad6-4bb1-9031-85b87b4dd3fe/FhajOchlqj.json"
+          background="##ffffff"
+          speed="1"
+          style="width: 150px; height: 150px"
+          loop
+          autoplay
+          direction="1"
+          mode="normal"
+        ></lottie-player>
+      </div>
+      <p class="loader-number"></p>
+      </div>
+      <div class="bg"></div>
+    </div>
+
+    <!-- Video background -->
+    <div class="header-video-container">
+      <div class="bg-video"></div>
+      <video src="./assets/nebula-video.mp4" autoplay loop muted></video>
+    </div>
+
+    <!-- Container for scroll -->
+    <div class="container">
+      <!-- Header -->
+      <header class="area header">
+        <div>
+          <img
+            src="./assets/new-logo-nebula.svg"
+            alt="Nebula Skates logo"
+            class="header-logo"
+          />
+        </div>
+        <div class="header-button-container">
+          <a href="#section-skates" class="header-button">Find Your Style </a>
+        </div>
+      </header>
+
+      <!-- Sections -->
+      <main class="main-container area-main" id="section-skates">
+        <div class="description-skate">
+          <button id="prevModel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+              <g data-name="91-Arrow Left">
+                <path
+                  d="m18.29 24.71-8-8a1 1 0 0 1 0-1.41l8-8 1.41 1.41L12.41 16l7.29 7.29z"
+                />
+              </g>
+            </svg>
+          </button>
+          <div id="skateInfo">
+            <h2 id="skateTitle"></h2>
+            <div id="skateDetails">
+              <div><p id="skateDescription"></p></div>
+              <div><p id="skateInspiration"></p></div>
+              <div class="skateColor">
+                <p id="skateColors"></p>
+              </div>
+            </div>
+          </div>
+          <button id="nextModel">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+              <g data-name="92-Arrow Right">
+                <path
+                  d="M13.71 24.71 12.3 23.3l7.29-7.3-7.3-7.29L13.7 7.3l8 8a1 1 0 0 1 0 1.41z"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="model-skate"></div>
+      </main>
+
+      <!-- footer -->
+      <footer class="footer area">
+        <!-- logo -->
+        <div class="footer-logo">
+          <img
+            src="./assets/new-logo-nebula-footer.svg"
+            alt="Nebula Skates logo"
+            class="header-logo"
+          />
+        </div>
+        <!-- Links -->
+        <div class="footer-sm">
+          <ul>
+            <li>
+              <a href="https://artielsry.github.io/portfolio/" target="_blank"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/soraya-artiel-a59384200/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/ArtielSry"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a href="mailto:artielsoraya@gmail.com">artielsoraya@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- script - libraries GSAP and THREE JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/Flip.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/build/three.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.129.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.140.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Lottie files -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- My scripts -->
+    <script src="./javascript/splash-intro.js"></script><!-- 
+    <script src="./javascript/three.js"></script>
+    <script src="./javascript/three-responsive.js"></script> -->
+
+      <script>
+        // Función para cargar un script de manera dinámica
+        function loadScript(src, callback) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.onload = callback;
+            document.head.appendChild(script);
+        }
+
+        // Función para detectar el tamaño de la pantalla y cargar el script correspondiente
+        function loadAppropriateScript() {
+            if (window.innerWidth <= 768) { // Puedes ajustar este valor según tus necesidades
+                loadScript('./javascript/three-responsive.js');
+            } else {
+                loadScript('./javascript/three.js');
+            }
+        }
+
+        // Cargar el script adecuado al cargar la página
+        loadAppropriateScript();
+
+        // Opcional: Recargar el script si se cambia el tamaño de la pantalla
+        window.addEventListener('resize', loadAppropriateScript);
+    </script>
+  </body>
+</html>
