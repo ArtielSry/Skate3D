@@ -1,4 +1,4 @@
-# Bee 3D Model Website
+# Skate 3D Model Website
 This is a simple web project that uses Three.js to display a 3D model of a bee and GSAP for smooth animations.
 ## Description
 This project was created to implement Three.js, a JavaScript library that allows you to create 3D graphics in the browser. The website features a 3D model of a bee that follows the mouse cursor, and uses GSAP to handle animations and transitions on the page.
