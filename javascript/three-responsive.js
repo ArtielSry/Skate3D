@@ -9,8 +9,8 @@ const skates = [
     colors: "Green, White",
     Attribution: `images in skate
 - https://www.freepik.es/autor/pikisuperstar`,
-    modelPath: "static/source/scene4.glb", // Same model for all skates
-    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor1.png", // Texture for Skate 1
+    modelPath: "static/source/scene4.glb", 
+    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor1.png", 
   },
   {
     title: "PHANTOM",
