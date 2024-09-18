@@ -1,47 +1,59 @@
+/* This is the responsive version, for more information you can check the other JS file named "three.js" */
+
 const skates = [
   {
     title: "VORTEX 56",
-    description: "An aggressive and modern design, ideal for street use.",
+    description: `Model 3D Skate  
+- https://sketchfab.com/3d-models/skateboard-free-model-5fb8302331154d0b80e7aa9352a3b664
+- https://creativecommons.org/licenses/by/4.0/`,
     colors: "Green, White",
-    inspiration: "Inspired by urban art from New York",
+    Attribution: `images in skate
+- https://www.freepik.es/autor/pikisuperstar`,
     modelPath: "static/source/scene4.glb", // Same model for all skates
     texturePath: "static/source/textures/SKATE_TEXTURE_baseColor1.png", // Texture for Skate 1
   },
   {
     title: "PHANTOM",
-    description: "Classic design for skaters of all levels.",
+    description: `Model 3D Skate  
+- https://sketchfab.com/3d-models/skateboard-free-model-5fb8302331154d0b80e7aa9352a3b664
+- https://creativecommons.org/licenses/by/4.0/`,
     colors: "Pink, Blue",
-    inspiration: "Inspired by forest colors",
-    modelPath: "static/source/scene4.glb", // Same model for all skates
-    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor2.png", // Texture for Skate 2
+    Attribution: `images in skate
+- https://www.freepik.es/autor/pikisuperstar`,
+    modelPath: "static/source/scene4.glb",
+    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor2.png",
   },
   {
     title: "PINNACLE",
-    description: "Lightweight board with futuristic graphics.",
+    description: `Model 3D Skate  
+- https://sketchfab.com/3d-models/skateboard-free-model-5fb8302331154d0b80e7aa9352a3b664
+- https://creativecommons.org/licenses/by/4.0/`,
     colors: "Violet, Blue",
-    inspiration: "Minimalist style and advanced technology",
-    modelPath: "static/source/scene4.glb", // Same model for all skates
-    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor3.png", // Texture for Skate 3 (optional)
+    Attribution: `images in skate
+- https://www.freepik.es/autor/pikisuperstar`,
+    modelPath: "static/source/scene4.glb",
+    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor3.png",
   },
   {
     title: "INFERNO 666",
-    description: "Lightweight board with futuristic graphics.",
+    description: `Model 3D Skate  
+- https://sketchfab.com/3d-models/skateboard-free-model-5fb8302331154d0b80e7aa9352a3b664
+- https://creativecommons.org/licenses/by/4.0/`,
     colors: "Blue, Orange",
-    inspiration: "Minimalist style and advanced technology",
-    modelPath: "static/source/scene4.glb", // Same model for all skates
-    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor4.png", // Texture for Skate 3 (optional)
+    Attribution: `images in skate
+- https://www.freepik.es/autor/pikisuperstar`,
+    modelPath: "static/source/scene4.glb",
+    texturePath: "static/source/textures/SKATE_TEXTURE_baseColor4.png",
   },
 ];
 
-// Variables globales
 let currentIndex = 0;
 let currentModel = null;
 let currentTexture = null;
-let currentAnimation = null; // Variable para almacenar la animación actual
-let currentTextureApplied = false; // Marcar que la textura ha sido aplicada
-const texturesCache = {}; // Caché de texturas
+let currentAnimation = null;
+let currentTextureApplied = false;
+const texturesCache = {};
 
-// Configuración de la escena y el renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -62,7 +74,6 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 mainContainer.appendChild(renderer.domElement);
 
-// Añadir iluminación a la escena
 const ambientLight = new THREE.AmbientLight(0x404040);
 scene.add(ambientLight);
 
@@ -87,28 +98,17 @@ directionalLight3.shadow.mapSize.width = 2048;
 directionalLight3.shadow.mapSize.height = 2048;
 scene.add(directionalLight3);
 
-// Cargar textura
 const textureLoader = new THREE.TextureLoader();
 
-// Función para pre-cargar todas las texturas
 function preloadTextures() {
   skates.forEach((skate) => {
-    textureLoader.load(
-      skate.texturePath,
-      (texture) => {
-        console.log("Textura cargada:", skate.texturePath);
-        texture.flipY = false;
-        texturesCache[skate.texturePath] = texture;
-      },
-      undefined,
-      (error) => {
-        console.error("Error al cargar la textura:", error);
-      }
-    );
+    textureLoader.load(skate.texturePath, (texture) => {
+      texture.flipY = false;
+      texturesCache[skate.texturePath] = texture;
+    });
   });
 }
 
-// Cargar texturas de forma asíncrona
 async function preloadTexturesAsync() {
   const texturePromises = skates.map(
     (skate) =>
@@ -129,166 +129,129 @@ async function preloadTexturesAsync() {
   );
   try {
     await Promise.all(texturePromises);
-    console.log("Todas las texturas han sido cargadas.");
-  } catch (error) {
-    console.error("Error al cargar texturas:", error);
-  }
+  } catch (error) {}
 }
 
-// Cargar el modelo 3D solo una vez
 function loadModelOnce() {
   const modelInfo = skates[currentIndex];
   const loader = new THREE.GLTFLoader();
 
-  // Cargar el modelo solo si no existe uno cargado
   if (!currentModel) {
-    loader.load(
-      modelInfo.modelPath,
-      (gltf) => {
-        currentModel = gltf.scene;
-        scene.add(currentModel);
-        currentModel.scale.set(0.5, 0.5, 0.5);
-        currentModel.rotation.set(-1.5, Math.PI / 1, 0);
-        currentModel.position.set(0, -0.2, 0);
+    loader.load(modelInfo.modelPath, (gltf) => {
+      currentModel = gltf.scene;
+      scene.add(currentModel);
+      currentModel.scale.set(0.5, 0.5, 0.5);
+      currentModel.rotation.set(-1.5, Math.PI / 1, 0);
+      currentModel.position.set(0, -0.2, 0);
 
-        currentModel.traverse((child) => {
-          if (child.isMesh) {
-            child.castShadow = false;
-            child.receiveShadow = false;
-          }
-        });
+      currentModel.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = false;
+          child.receiveShadow = false;
+        }
+      });
 
-        render();
-        updateSkateInfo(currentIndex); // Aplicar textura inicial
-      },
-      undefined,
-      (error) => {
-        console.error("Error al cargar el modelo:", error);
-      }
-    );
+      render();
+      updateSkateInfo(currentIndex);
+    });
   }
 }
 
 const titleElement = document.getElementById("skateTitle");
 const descriptionElement = document.getElementById("skateDescription");
 const colorsElement = document.getElementById("skateColors");
-const inspirationElement = document.getElementById("skateInspiration");
+const AttributionElement = document.getElementById("skateAttribution");
 
 titleElement.classList.add("fade-out");
 
-// Función para actualizar la información del skate y aplicar la textura
 function updateSkateInfo(index) {
   const modelInfo = skates[index];
 
-  // Actualizar la descripción en el DOM
   titleElement.innerText = modelInfo.title;
   descriptionElement.innerText = modelInfo.description;
   colorsElement.innerText = `Colors: ${modelInfo.colors}`;
-  inspirationElement.innerText = `Inspiration: ${modelInfo.inspiration}`;
+  AttributionElement.innerText = `Attribution: ${modelInfo.Attribution}`;
 
-  // Usar la textura del caché si está disponible
   currentTexture = texturesCache[modelInfo.texturePath];
 
   if (currentModel && currentTexture) {
-    // Marcar que la textura no ha sido aplicada
     currentTextureApplied = false;
-
-    // Animar la transición de textura
     startRotationAnimation();
   }
 }
 
-// Función para iniciar la animación de rotación
 function startRotationAnimation(rotationDirection = 1) {
-  const rotationAmount = Math.PI * 2 * rotationDirection; // Rotación completa de 360 grados en el eje X
+  const rotationAmount = Math.PI * 2 * rotationDirection;
 
-  // Detener cualquier animación previa
   if (currentAnimation) {
     currentAnimation.kill();
   }
 
-  // Crear una animación con GSAP que controle la rotación en el eje X
   currentAnimation = gsap.to(currentModel.rotation, {
-    x: `+=${rotationAmount}`, // Rotar el modelo en el eje X
-    duration: 1, // Duración de la animación
+    x: `+=${rotationAmount}`,
+    duration: 1,
     ease: "power2.inOut",
     onUpdate: function () {
-      // Verificar el progreso de la animación
       const tweenProgress = this.progress();
-
-      // Aplicar la textura cuando el progreso sea aproximadamente el 5%
       if (tweenProgress >= 0.5 && !currentTextureApplied) {
-        console.log("Aplicando la textura al 5% de la animación");
-        applyTexture(); // Aplicar la textura en el 50% de la animación
-        currentTextureApplied = true; // Asegurarse de que solo se aplique una vez
+        applyTexture();
+        currentTextureApplied = true;
       }
     },
     onComplete: () => {
-      // Asegurar que la textura esté aplicada al final si no se aplicó antes
       if (!currentTextureApplied) {
         applyTexture();
       }
-      render(); // Re-renderizar la escena al final de la animación
+      render();
     },
   });
 }
 
 function applyTexture() {
-  console.log("Aplicando la textura");
   if (currentModel && currentTexture) {
     currentModel.traverse((child) => {
       if (child.isMesh) {
-        child.material.map = currentTexture; // Aplicar la textura
-        child.material.needsUpdate = true; // Asegurar que el material se actualice
+        child.material.map = currentTexture;
+        child.material.needsUpdate = true;
       }
     });
-  } else {
-    console.error("Modelo o textura no disponibles");
   }
 }
 
-// Precargar texturas y cargar el modelo
 preloadTexturesAsync();
-loadModelOnce(); // Cargar el modelo una sola vez
+loadModelOnce();
 
-// Función para avanzar al siguiente modelo (cambiar textura)
 function nextModel() {
   currentIndex = (currentIndex + 1) % skates.length;
   updateSkateInfo(currentIndex);
-  startRotationAnimation(1); // Rotar en la dirección positiva para avanzar
+  startRotationAnimation(1);
 }
 
-// Función para retroceder al modelo anterior (cambiar textura)
 function prevModel() {
   currentIndex = (currentIndex - 1 + skates.length) % skates.length;
   updateSkateInfo(currentIndex);
-  startRotationAnimation(-1); // Rotar en la dirección negativa para retroceder
+  startRotationAnimation(-1);
 }
 
-// Asignar eventos a los botones de navegación
 document.getElementById("nextModel").addEventListener("click", nextModel);
 document.getElementById("prevModel").addEventListener("click", prevModel);
 
-// Variables globales
 let lastFrameTime = 0;
-const fps = 30; // Número de frames por segundo deseado
-const frameInterval = 1000 / fps; // Intervalo entre frames en milisegundos
+const fps = 30;
+const frameInterval = 1000 / fps;
 
 function render(currentTime) {
   requestAnimationFrame(render);
 
   const deltaTime = currentTime - lastFrameTime;
   if (deltaTime > frameInterval) {
-    // Actualiza la escena y renderiza
     renderer.render(scene, camera);
     lastFrameTime = currentTime - (deltaTime % frameInterval);
   }
 }
 
-// Inicializar y empezar la función de renderizado
 render();
 
-// Ajustar el tamaño del renderizador cuando se cambia el tamaño de la ventana
 window.addEventListener("resize", () => {
   renderer.setSize(mainContainer.clientWidth, mainContainer.clientHeight);
   camera.aspect = mainContainer.clientWidth / mainContainer.clientHeight;

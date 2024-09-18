@@ -41,7 +41,7 @@
         ></lottie-player>
       </div>
       <p class="loader-number"></p>
-      </div>
+
       <div class="bg"></div>
     </div>
 
@@ -57,13 +57,25 @@
       <header class="area header">
         <div>
           <img
-            src="./assets/new-logo-nebula.svg"
+            src="./assets/logo-NS.svg"
             alt="Nebula Skates logo"
             class="header-logo"
           />
         </div>
-        <div class="header-button-container">
-          <a href="#section-skates" class="header-button">Find Your Style </a>
+        <div class="subheader">
+          <div class="header-models-skates">
+            <h2>Available skates:</h2>
+            <ul>
+              <li>VORTEX 56</li>
+              <li>PHANTOM</li>
+              <li>PINNACLE</li>
+              <li>INFERNO 666</li>
+            </ul>
+          </div>
+          <div class="subheader-scroll">
+            <img src="./assets/arrow-down.svg" alt="arrow down" />
+            <p>Scroll to explore</p>
+          </div>
         </div>
       </header>
 
@@ -83,7 +95,7 @@
             <h2 id="skateTitle"></h2>
             <div id="skateDetails">
               <div><p id="skateDescription"></p></div>
-              <div><p id="skateInspiration"></p></div>
+              <div><p id="skateAttribution"></p></div>
               <div class="skateColor">
                 <p id="skateColors"></p>
               </div>
@@ -161,33 +173,35 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <!-- My scripts -->
-    <script src="./javascript/splash-intro.js"></script><!-- 
+    <script src="./javascript/splash-intro.js"></script>
+    <!-- 
     <script src="./javascript/three.js"></script>
     <script src="./javascript/three-responsive.js"></script> -->
 
-      <script>
-        // Función para cargar un script de manera dinámica
-        function loadScript(src, callback) {
-            var script = document.createElement('script');
-            script.src = src;
-            script.onload = callback;
-            document.head.appendChild(script);
+    <script>
+      // Función para cargar un script de manera dinámica
+      function loadScript(src, callback) {
+        var script = document.createElement("script");
+        script.src = src;
+        script.onload = callback;
+        document.head.appendChild(script);
+      }
+
+      // Función para detectar el tamaño de la pantalla y cargar el script correspondiente
+      function loadAppropriateScript() {
+        if (window.innerWidth <= 768) {
+          // Puedes ajustar este valor según tus necesidades
+          loadScript("./javascript/three-responsive.js");
+        } else {
+          loadScript("./javascript/three.js");
         }
+      }
 
-        // Función para detectar el tamaño de la pantalla y cargar el script correspondiente
-        function loadAppropriateScript() {
-            if (window.innerWidth <= 768) { // Puedes ajustar este valor según tus necesidades
-                loadScript('./javascript/three-responsive.js');
-            } else {
-                loadScript('./javascript/three.js');
-            }
-        }
+      // Cargar el script adecuado al cargar la página
+      loadAppropriateScript();
 
-        // Cargar el script adecuado al cargar la página
-        loadAppropriateScript();
-
-        // Opcional: Recargar el script si se cambia el tamaño de la pantalla
-        window.addEventListener('resize', loadAppropriateScript);
+      // Opcional: Recargar el script si se cambia el tamaño de la pantalla
+      window.addEventListener("resize", loadAppropriateScript);
     </script>
   </body>
 </html>
