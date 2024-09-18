@@ -6,11 +6,11 @@ This project was created to implement Three.js, a JavaScript library that allows
 The 3D model (below is the attribution) has been modified, removing the image that the creator had put and replacing it with some images (below is the attribution) that I have also modified using Adobe Photoshop.
 
 ## Technologies
-Three.js: JavaScript library for rendering 3D graphics in the browser.
-GSAP: Library for animations and transitions in JavaScript.
-HTML/CSS: For structuring and styling the web page.
-Adobe Photoshop to modify some images.
-Figma to create de design.
+- Three.js: JavaScript library for rendering 3D graphics in the browser.
+- GSAP: Library for animations and transitions in JavaScript.
+- HTML/CSS: For structuring and styling the web page.
+- Adobe Photoshop to modify some images.
+- Figma to create de design.
 
 # Attribution:
 
