@@ -113,6 +113,9 @@ body {
   }
 }
 
+.header-models-skates h2 {
+    line-height: 100px;
+}
 .header-models-skates {
   width: 50%;
   display: flex;
@@ -122,8 +125,6 @@ body {
 
   font-family: "primary-font", sans-serif;
   font-size: 5rem;
-  
-  line-height: 100px;
 
   visibility: hidden;
   animation-name: slide-in-left;
