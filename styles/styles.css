@@ -122,6 +122,8 @@ body {
 
   font-family: "primary-font", sans-serif;
   font-size: 5rem;
+  
+  line-height: 100px;
 
   visibility: hidden;
   animation-name: slide-in-left;
@@ -146,18 +148,6 @@ body {
   }
 }
 
-.header-models-skates ul {
-  display: flex;
-  justify-content: flex-start;
-  align-items: start;
-
-  flex-direction: column;
-  list-style: none;
-}
-
-.header-models-skates ul li {
-  font-size: 3rem;
-}
 
 .header-video-container {
   width: 100vw;
